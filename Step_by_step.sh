@@ -49,22 +49,22 @@ sudo apt install jitsi-meet
 
 
 #########################################
-To be Verfied After Instalation
-Advanced configuration
-If the installation is on a machine behind NAT jitsi-videobridge should configure itself automatically on boot. If three way calls do not work, further configuration of jitsi-videobridge is needed in order for it to be accessible from outside.
+#To be Verfied After Instalation
+#Advanced configuration
+#If the installation is on a machine behind NAT jitsi-videobridge should configure itself automatically on boot. If three way calls do not work, further configuration of jitsi-videobridge is needed in order for it to be accessible from outside.
 
-Provided that all required ports are routed (forwarded) to the machine that it runs on. By default these ports are TCP/443 and UDP/10000.
+#Provided that all required ports are routed (forwarded) to the machine that it runs on. By default these ports are TCP/443 and UDP/10000.
 
-The following extra lines need to be added to the file /etc/jitsi/videobridge/sip-communicator.properties:
+#The following extra lines need to be added to the file /etc/jitsi/videobridge/sip-communicator.properties:
 
 org.ice4j.ice.harvest.NAT_HARVESTER_LOCAL_ADDRESS=<Local.IP.Address>
 org.ice4j.ice.harvest.NAT_HARVESTER_PUBLIC_ADDRESS=<Public.IP.Address>
 
-And comment the existing org.ice4j.ice.harvest.STUN_MAPPING_HARVESTER_ADDRESSES.
+#comment the existing org.ice4j.ice.harvest.STUN_MAPPING_HARVESTER_ADDRESSES.
 ##########################################
 
 ##########################################
-Check if it is Required 
+#Check if it is Required 
 
 Systemd/Limits: Default deployments will have low values for maximum processes and open files. For greater than 100 participants, change /etc/systemd/system.conf to:
 
@@ -72,7 +72,7 @@ DefaultLimitNOFILE=65000
 DefaultLimitNPROC=65000
 DefaultTasksMax=65000
 
-To check values just run:
+#To check values just run:
 
 systemctl show --property DefaultLimitNPROC
 systemctl show --property DefaultLimitNOFILE
@@ -81,12 +81,12 @@ systemctl show --property DefaultTasksMax
 ###########################################
 
 ###########################################
-Additional Functions
-Adding sip-gateway to Jitsi Meet
-Install Jigasi
-Jigasi is a server-side application acting as a gateway to Jitsi Meet conferences. It allows regular SIP clients to join meetings and provides transcription capabilities.
+#Additional Functions
+#Adding sip-gateway to Jitsi Meet
+#Install Jigasi
+#Jigasi is a server-side application acting as a gateway to Jitsi Meet conferences. It allows regular SIP clients to join meetings and provides transcription capabilities.
 
 sudo apt install jigasi
 
-During the installation, you will be asked to enter your SIP account and password. This account will be used to invite the other SIP participants.
+#During the installation, you will be asked to enter your SIP account and password. This account will be used to invite the other SIP participants.
 ##########################################
